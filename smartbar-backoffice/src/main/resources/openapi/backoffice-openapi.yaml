@@ -65,10 +65,10 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Category'
-  /articles:
-  /articles/{articleId}:
-  /tables:
-  /tables/{tableId}:
+  #/articles:
+  #/articles/{articleId}:
+  #/tables:
+  #/tables/{tableId}:
 components:
   schemas:
     Category:
