@@ -53,6 +53,14 @@
             <artifactId>rest-assured</artifactId>
             <scope>test</scope>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/io.rest-assured/json-path -->
+        <dependency>
+            <groupId>io.rest-assured</groupId>
+            <artifactId>json-path</artifactId>
+            <version>5.5.0</version>
+            <scope>test</scope>
+        </dependency>
+
     </dependencies>
 
     <build>
@@ -123,12 +131,14 @@
                         <configuration>
                             <inputSpec>${project.basedir}/src/main/resources/openapi/backoffice-openapi.yaml</inputSpec>
                             <generatorName>jaxrs-spec</generatorName>
-                            <apiPackage>com.jp.programming.smartbar.backoffice.api</apiPackage>
-                            <modelPackage>com.jp.programming.smartbar.backoffice.model</modelPackage>
+                            <apiPackage>com.jp.programming.backoffice.api</apiPackage>
+                            <modelPackage>com.jp.programming.backoffice.model</modelPackage>
                             <configOptions>
                                 <sourceFolder>src/main/java</sourceFolder>
                                 <useJakartaEe>true</useJakartaEe>
                                 <useSwaggerAnnotations>false</useSwaggerAnnotations>
+                                <interfaceOnly>true</interfaceOnly>
+                                <returnResponse>true</returnResponse>
                             </configOptions>
                         </configuration>
                     </execution>

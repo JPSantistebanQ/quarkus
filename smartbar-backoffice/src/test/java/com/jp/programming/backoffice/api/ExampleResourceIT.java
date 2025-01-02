@@ -1,4 +1,4 @@
-package com.jp.programming;
+package com.jp.programming.backoffice.api;
 
 import io.quarkus.test.junit.QuarkusIntegrationTest;
 

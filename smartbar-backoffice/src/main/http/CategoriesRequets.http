@@ -1,0 +1,23 @@
+### Create new
+POST {{url}}/categories
+Content-Type: application/json
+
+{
+  "name": "wine"
+}
+
+### Modify
+PUT {{url}}/categories/4711
+
+{
+    "name": "wine"
+}
+
+### Get all
+GET {{url}}/categories
+
+### Get by id
+GET {{url}}/categories/4711
+
+### Delete
+DELETE {{url}}/categories/4711
