@@ -1,10 +1,12 @@
 package com.jp.programming.backoffice.api;
 
 import com.jp.programming.backoffice.model.Category;
+import io.smallrye.common.annotation.NonBlocking;
 import jakarta.ws.rs.core.Response;
 
 import java.net.URI;
 
+@NonBlocking
 public class CategoriesResource implements CategoriesApi {
     private final Category category = new Category().name("drinks");
 
