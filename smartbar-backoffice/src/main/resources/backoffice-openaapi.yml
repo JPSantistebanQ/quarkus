@@ -1,0 +1,87 @@
+openapi: 3.1.0
+info:
+  title: Backoffice API
+  version: 1.0.0
+  description: Backoffice API
+  contact:
+    name: Backoffice Team
+    email: jpsantq@gmail.com
+paths:
+  /categories:
+    get:
+      summary: Get all categories
+      operationId: getCategories
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Category'
+    post:
+      summary: Create a category
+      operationId: createCategory
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Category'
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Category'
+  /categories/{categoryId}:
+    parameters:
+      - name: categoryId
+        in: path
+        required: true
+        schema:
+          type: integer
+        description: The category ID
+    put:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Category'
+      responses:
+        '200':
+          description: OK
+    delete:
+      responses:
+        '200':
+          description: OK
+    get:
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Category'
+  /articles:
+  /articles/{articleId}:
+  /tables:
+  /tables/{tableId}:
+components:
+  schemas:
+    Category:
+      type: object
+      properties:
+        name:
+          type: string
+        description:
+          type: string
+    article:
+      type: object
+      properties:
+        name:
+          type: string
+        description:
+          type: string
