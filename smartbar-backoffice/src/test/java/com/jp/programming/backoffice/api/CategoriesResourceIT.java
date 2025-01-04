@@ -3,6 +3,5 @@ package com.jp.programming.backoffice.api;
 import io.quarkus.test.junit.QuarkusIntegrationTest;
 
 @QuarkusIntegrationTest
-class ExampleResourceIT extends ExampleResourceTest {
-    // Execute the same tests but in packaged mode.
+public class CategoriesResourceIT extends CategoriesResourceTest {
 }

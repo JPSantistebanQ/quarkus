@@ -5,6 +5,7 @@ import io.smallrye.common.annotation.NonBlocking;
 import jakarta.ws.rs.core.Response;
 
 import java.net.URI;
+import java.util.List;
 
 @NonBlocking
 public class CategoriesResource implements CategoriesApi {
@@ -33,6 +34,6 @@ public class CategoriesResource implements CategoriesApi {
 
     @Override
     public Response getCategories() {
-        return Response.ok().build();
+        return Response.ok(List.of(category)).build();
     }
 }
