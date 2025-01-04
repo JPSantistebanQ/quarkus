@@ -1,15 +1,18 @@
 package com.jp.programming.backoffice.api;
 
-import com.jp.programming.backoffice.model.Category;
 import io.smallrye.common.annotation.NonBlocking;
 import jakarta.ws.rs.core.Response;
 
-import java.net.URI;
 import java.util.List;
 
 @NonBlocking
 public class CategoriesResource implements CategoriesApi {
-    private final Category category = new Category().name("drinks");
+
+    private final CategoriesService categoriesService;
+
+    public CategoriesResource(CategoriesService categoriesService) {
+        this.categoriesService = categoriesService;
+    }
 
 
     @Override
@@ -19,21 +22,21 @@ public class CategoriesResource implements CategoriesApi {
 
     @Override
     public Response categoriesCategoryIdGet(Integer categoryId) {
-        return Response.ok(category).build();
+        return Response.ok(categoriesService.get()).build();
     }
 
     @Override
-    public Response categoriesCategoryIdPut(Integer categoryId, Category category) {
-        return Response.ok().build();
+    public Response categoriesCategoryIdPut(Integer categoryId, com.jp.programming.backoffice.api.model.Category category) {
+        return null;
     }
 
     @Override
-    public Response createCategory(Category category) {
-        return Response.created(URI.create("todo")).build();
+    public Response createCategory(com.jp.programming.backoffice.api.model.Category category) {
+        return null;
     }
 
     @Override
     public Response getCategories() {
-        return Response.ok(List.of(category)).build();
+        return Response.ok(List.of(categoriesService.get())).build();
     }
 }

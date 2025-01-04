@@ -1,16 +1,28 @@
 package com.jp.programming.backoffice.api;
 
+import com.jp.programming.backoffice.model.Category;
 import io.quarkus.logging.Log;
+import io.quarkus.test.InjectMock;
 import io.quarkus.test.junit.QuarkusTest;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.mockito.Mockito;
 
 import static io.restassured.RestAssured.given;
 
 @QuarkusTest
 class CategoriesResourceTest {
+
+    @InjectMock
+    CategoriesService categoriesServiceMock;
+
+    @BeforeEach
+    void setUp() {
+        Mockito.when(categoriesServiceMock.get()).thenReturn(new Category().name("Mock"));
+    }
 
     @Test
     void getListOfCategories() {
@@ -24,6 +36,6 @@ class CategoriesResourceTest {
 
         final JsonPath jsonPath = response.jsonPath();
 
-        Assertions.assertEquals("drinks", jsonPath.getString("[0].name"));
+        Assertions.assertEquals("Mock", jsonPath.getString("[0].name"));
     }
 }
