@@ -1,6 +1,6 @@
 package com.jp.programming.backoffice.api;
 
-import com.jp.programming.backoffice.model.Category;
+import com.jp.programming.backoffice.api.model.Category;
 import io.quarkus.logging.Log;
 import io.quarkus.test.InjectMock;
 import io.quarkus.test.junit.QuarkusTest;

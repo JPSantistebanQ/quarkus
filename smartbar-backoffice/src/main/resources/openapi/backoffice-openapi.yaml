@@ -85,3 +85,12 @@ components:
           type: string
         description:
           type: string
+    apiTable:
+      type: object
+      properties:
+        name:
+          type: string
+        seatCount:
+          type: integer
+        active:
+          type: boolean
